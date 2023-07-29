@@ -1,41 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorem Ipsum Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        #error-message {
-            color: red;
-            font-weight: bold;
-            text-align: center;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            background-color: white;
-            padding: 20px;
-            border: 2px solid red;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #content {
-            display: none;
-        }
-    </style>
-</head>
-
-<body>
-    <div id="content">
         <h1>Lorem Ipsum</h1>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus venenatis mi, in tincidunt nisl
@@ -50,36 +12,3 @@
             Proin bibendum odio at lacus auctor, nec hendrerit est hendrerit. Nullam aliquet turpis nec nunc
             fringilla, vitae blandit nulla convallis. Nullam ut justo tincidunt, rhoncus orci vel, sagittis elit.
         </p>
-    </div>
-    <div id="error-message">Please enable JavaScript to view the site</div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const contentElement = document.getElementById("content");
-            const errorMessageElement = document.getElementById("error-message");
-
-            // Show the error message if JavaScript is disabled
-            errorMessageElement.style.display = "block";
-            contentElement.style.display = "none";
-
-            // Fetch HTML content and display it if JavaScript is enabled
-            fetch('https://www.example.com') // Replace with the desired website link
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    contentElement.innerHTML = data; // Display the fetched HTML content
-                    contentElement.style.display = "block";
-                    errorMessageElement.style.display = "none";
-                })
-                .catch(error => {
-                    console.error('Fetch error:', error);
-                });
-        });
-    </script>
-</body>
-
-</html>
